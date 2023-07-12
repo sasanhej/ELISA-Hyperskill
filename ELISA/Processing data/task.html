@@ -1,0 +1,68 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>The laboratory, that has sent you the data, studies the role of a certain protein in the disease <span class="math-tex">\(X\)</span>. You have received two files: a file with raw signals (OD), <em>elisa_data.csv</em>, and a file with standard values of a studied protein, <em>standard_values.csv.</em> </p>
+<p>If the received files are corrupted, you can download them manually: <a href="https://stepik.org/media/attachments/lesson/787673/elisa_data.csv" rel="noopener noreferrer nofollow" target="_blank">elisa_data.csv</a> and <a href="https://stepik.org/media/attachments/lesson/787673/standard_values.csv" rel="noopener noreferrer nofollow" target="_blank">standard_values.csv</a>.</p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Take the path to the CSV file with raw signals using <code class="java">input()</code> function. Then process the file using <code class="java">pandas.read_csv()</code> and examine the columns in the file;</li>
+<li>Create two columns – <code class="java">AverageOD</code> and <code class="java">CorrectedOD</code> – and fill them up with values, so you could proceed with the calculations!</li>
+<li>Save the updated file as <em><code class="java">elisa_result.csv</code>.</em></li>
+</ol>
+<p> </p>
+<p>Just a reminder, <code class="java">for AverageOD</code>, find an average of duplicates (divide the sum of all observations (<code class="java">OD1</code>, <code class="java">OD2</code>) by the number of observations):</p>
+<p><span class="math-tex">\[AverageOD = {{OD1 + OD2} \over 2}\]</span></p>
+<p>For <code class="java">CorrectedOD</code>: subtract the blank values (subtract a calculated average blank value from all other average values in the table):</p>
+<p><span class="math-tex">\[CorrectedOD = {Average - BlankAverage}\]</span></p>
+<p></p><div class="alert alert-primary">Of course, it is simpler to pass the file directly to the <code class="java">pandas.read_csv()</code> function. However, using the <code class="java">input()</code> function provides greater flexibility for the script; instead of replacing the file path every time you use it, you can provide it later at runtime.</div>
+<h5 id="example">Example</h5>
+<p><em>Content of<strong> </strong>CSV file with raw signals:</em></p>
+<table border="1" cellpadding="1" cellspacing="1">
+<thead>
+<tr>
+<th> </th>
+<th>OD1</th>
+<th>OD2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Sample 1</td>
+<td style="text-align: center;">1.253</td>
+<td style="text-align: center;">1.269</td>
+</tr>
+<tr>
+<td style="text-align: center;">Blank</td>
+<td style="text-align: center;">0.172</td>
+<td style="text-align: center;">0.175</td>
+</tr>
+</tbody>
+</table>
+<p><em>Output:<strong> </strong>elisa_result.csv file with the following structure:</em></p>
+<table border="1" cellpadding="1" cellspacing="1">
+<thead>
+<tr>
+<th> </th>
+<th>OD1</th>
+<th>OD2</th>
+<th>AverageOD</th>
+<th>CorrectedOD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Sample 1</td>
+<td style="text-align: center;">1.253</td>
+<td style="text-align: center;">1.269</td>
+<td style="text-align: center;">1.261</td>
+<td style="text-align: center;">1.087</td>
+</tr>
+<tr>
+<td style="text-align: center;">Blank</td>
+<td style="text-align: center;">0.172</td>
+<td style="text-align: center;">0.175</td>
+<td style="text-align: center;">0.174</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</div>

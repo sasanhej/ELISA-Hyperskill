@@ -1,0 +1,115 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>Now it's time to find <span class="math-tex">\(X\)</span> (the concentration of samples) using known equation parameters and optical density values. Let's rearrange the equation from solving <span class="math-tex">\(y\)</span> to solving <span class="math-tex">\(x\)</span>.</p>
+<p>This way, the classical 4PL equation:</p>
+<p> <span class="math-tex">\[y = D + {{A - D} \over 1 + {x \over C}^B}\]</span></p>
+<p>turns into:</p>
+<p> <span class="math-tex">\[x = C({{{A - D} \over Y - D} - 1 })^{1\over B}\]</span></p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Take the path to the CSV file with raw signals using <code class="language-python">input()</code> function. Then process the file using <code class="language-python">pandas.read_csv()</code>;</li>
+<li>Write the <strong>NEW</strong> equation as a Python function;</li>
+<li>Using this function and the parameters you got in the previous stage, find the concentrations of the samples;</li>
+<li>Save (as a .csv file) a DataFrame that contains all columns from Stage 1 plus one new column – <code class="language-python">Concentration (ng/ml)</code>.</li>
+</ol>
+<p>One of the ways to do it:</p>
+<pre><code class="language-python">def logistic4x(y, A, B, C, D):
+
+    return #add an equation here</code></pre>
+<p>Don't forget to add your parameters from the previous stage here, for example:</p>
+<pre><code class="language-python">A = 0.2
+
+B = 0.5
+
+C = 100
+
+D = 2.5</code></pre>
+<p>Then add a new column to the existing DataFrame.</p>
+<h5 id="example">Example</h5>
+<p><em>Input: CSV file with raw data and the CorrectedOD values from Stage 1</em></p>
+<p><em>Output: elisa_result.csv</em> <em>file with the following structure:</em></p>
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>
+<p>OD1</p>
+</th>
+<th>
+<p>OD2</p>
+</th>
+<th>
+<p>AverageOD</p>
+</th>
+<th>
+<p>CorrectedOD</p>
+</th>
+<th>
+<p>Concentration<strong> </strong>(ng/ml)</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;">Sample 1</p>
+</td>
+<td>
+<p style="text-align: center;">1.253</p>
+</td>
+<td>
+<p style="text-align: center;">1.269</p>
+</td>
+<td>
+<p style="text-align: center;">1.261</p>
+</td>
+<td>
+<p style="text-align: center;">1.087</p>
+</td>
+<td>
+<p style="text-align: center;">0.25</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: center;">Sample 2</p>
+</td>
+<td>
+<p style="text-align: center;">2.619</p>
+</td>
+<td>
+<p style="text-align: center;">2.590</p>
+</td>
+<td>
+<p style="text-align: center;"> 2.605</p>
+</td>
+<td>
+<p style="text-align: center;">1.876</p>
+</td>
+<td>
+<p style="text-align: center;">0.378</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: center;">Blank</p>
+</td>
+<td>
+<p style="text-align: center;">0.172</p>
+</td>
+<td>
+<p style="text-align: center;">0.175</p>
+</td>
+<td>
+<p style="text-align: center;"> 0.174</p>
+</td>
+<td>
+<p style="text-align: center;"> 0</p>
+</td>
+<td>
+<p style="text-align: center;">0.002</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

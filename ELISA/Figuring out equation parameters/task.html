@@ -1,0 +1,29 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>As you already know, the next step in obtaining sample concentrations is curve fitting. In this stage, calculate all parameters of the <strong>four parametric logistic curve </strong>(4PL) equation using data from <em>standard_values.csv</em>: <span class="math-tex">\[y = D + {{A - D} \over 1 + {x \over C}^B}\]</span></p>
+<h5 id="objectives">Objectives</h5>
+<ol>
+<li>Take the path to the CSV file with the standard values using <code class="language-python">input()</code> function. Then process the file using <code class="language-python">pandas.read_csv()</code>;</li>
+<li>Find an average optical density (similar to the procedure in Stage1) and name the column <code class="language-python">AverageOD</code>;</li>
+<li>Write a<strong> </strong>4PL equation as a function in Python;</li>
+<li>With the <code class="language-python">scipy.curve_fit()</code><em> </em>Python function, find all equation parameters, using the<strong> </strong>standard values data, and print the result (exactly as shown below).</li>
+</ol>
+<p> </p>
+<p>For example, it can look like this:</p>
+<pre><code class="language-python">from scipy.optimize import curve_fit
+
+def func(x, a, b, c):
+
+    return a * np.exp(-b * x) + c
+
+popt, pcov = curve_fit(func, xdata, ydata) 
+
+print(popt)</code></pre>
+<p>Here, <code class="language-python">xdata</code> equals known concentrations for the standard samples, a column of your DataFrame (an array), and <code class="language-python">ydata</code> is the known optical density (OD) values for standard samples, a column "AverageOD" of your DataFrame (an array). </p>
+<p>The function in the example is NOT RELATED to the 4PL equation; create the function, similar to the one in the example.</p>
+<h5 id="example">Example</h5>
+<p><em>Input: CSV file with standard values</em></p>
+<p><em>Output (the value of <strong>popt</strong>):</em></p>
+<pre><code class="language-python">array([  0.24379838,   1.68910347, 116.67136174,   2.86685359])</code></pre>
+<p></p><div class="alert alert-primary"> Please keep in mind that the output should be given as an array, not a list; thus being said, simply printing a variable is enough, no need to change the type of a variable. </div>
+</div>

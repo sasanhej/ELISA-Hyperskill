@@ -1,0 +1,66 @@
+type: edu
+files:
+- name: app.py
+  visible: true
+  text: |
+    print('Hello World!')
+  learner_created: false
+- name: elisa_data.csv
+  visible: true
+  learner_created: false
+- name: standard_values.csv
+  visible: true
+  learner_created: false
+- name: test/__init__.py
+  visible: false
+  learner_created: false
+- name: test/tests.py
+  visible: false
+  text: |
+    from hstest import *
+
+    standard_values = """Samples,OD1,OD2,Concentration (ng/ml)\nSTD1,0.319,0.315,2.058\nSTD2,0.618,0.463,6.173\nSTD3,0.675,0.69,18.519\nSTD4,0.847,0.851,55.556\nSTD5,1.025,1.008,166.667\nSTD6,0.97,0.975,500.0"""
+
+
+    class TestUserProgram(StageTest):
+        @dynamic_test(files={"test/standard_values.csv": standard_values})
+        def test1(self):
+            main = TestedProgram()
+            main.start() #starting the user's script
+            if not main.is_waiting_input():
+                return CheckResult.wrong("You should not input any data")
+            reply = main.execute("test/standard_values.csv")
+            try:
+                user_list = [float(x) for x in reply.strip("[,]\n").split(" ")]
+            except ValueError:
+                return CheckResult.wrong("Your output should be given as an array popt produced by curve_fit function")
+            if len(user_list) != 4:
+                return CheckResult.wrong("Your program should print 4 parameters in an array.") #error message
+            answer = [0.04222091, 0.73506411, 7.38040933, 1.05035043]
+            for i, j in zip(user_list, answer): #comparing numbers in two lists so the module of difference wouldn't be more than 0.0001
+                if abs(i - j) > 0.0001:
+                    return CheckResult.wrong("'CorrectedOD' column has wrong values.")
+                else:
+                    return CheckResult.correct()
+
+
+    if __name__ == '__main__':
+        TestUserProgram().run_tests()
+  learner_created: false
+- name: tests.py
+  visible: false
+  text: |
+    from test.tests import TestUserProgram
+
+    if __name__ == '__main__':
+        TestUserProgram().run_tests()
+  learner_created: false
+- name: elisa_result.csv
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/22569#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sun, 25 Jun 2023 23:34:16 UTC"
+record: 2

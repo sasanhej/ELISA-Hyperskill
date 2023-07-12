@@ -1,0 +1,79 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>In ELISA experiments, researchers use sample dilutions to prevent<strong> </strong>any potential assay interference<strong> </strong>and to get more<strong> </strong>accurate results. How to be sure that the protein is still detectable? For that, you can calculate the LOD, the lower limit of detection. </p>
+<p>Your colleague ran a series of experiments to find the LOD and kindly <a href="https://stepik.org/media/attachments/lesson/787673/elisa_result.csv" rel="noopener noreferrer nofollow" target="_blank">shared it</a> with you. Try to upgrade your function so it would tell you (based on the earlier obtained concentrations) if you can still detect the protein in the sample.</p>
+<h5 id="objectives">Objectives</h5>
+<p>Upgrade the <code class="java">elisa_automation</code> function, so the data frame would have a new column called <code class="java">Protein detectable</code> with <code class="java">True</code>/<code class="java">False</code> values.</p>
+<p><br/>
+<span class="math-tex">\[LOD value = 1 ng/ml\]</span></p>
+<h5 id="example">Example</h5>
+<p><em>Input: </em></p>
+<ol>
+<li>File in CSV format with raw signals;</li>
+<li>File in CSV fromat with standard values.</li>
+</ol>
+<p><em>Output: elisa_result.csv file with the following structure:</em></p>
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>
+<p>OD1</p>
+</th>
+<th>
+<p>OD2</p>
+</th>
+<th>
+<p>AverageOD</p>
+</th>
+<th>
+<p>CorrectedOD</p>
+</th>
+<th>
+<p>Concentration (ng/ml)</p>
+</th>
+<th>Protein detectable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;">Sample 1</p>
+</td>
+<td>
+<p style="text-align: center;">1.253</p>
+</td>
+<td>
+<p style="text-align: center;">1.269</p>
+</td>
+<td>
+<p style="text-align: center;">1.261</p>
+</td>
+<td>
+<p style="text-align: center;">1.261 - 0.174 = 1.087</p>
+</td>
+<td style="text-align: center;">2.7</td>
+<td style="text-align: center;">True</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: center;">Blank</p>
+</td>
+<td>
+<p style="text-align: center;">0.172</p>
+</td>
+<td>
+<p style="text-align: center;">0.175</p>
+</td>
+<td>
+<p style="text-align: center;">0.174</p>
+</td>
+<td>
+<p style="text-align: center;">0.174 - 0.174 = 0</p>
+</td>
+<td style="text-align: center;">0.6</td>
+<td style="text-align: center;">False</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,97 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>Now, it's time to create the prime function to automate the whole process! </p>
+<h5 id="objectives">Objectives</h5>
+<p>Take the path to the .csv files with raw signals and standard values using <code class="java">input()</code> function. Then process files using <code class="java">pandas.read_csv()</code>. Create the <code class="java">elisa_automation</code> function that takes two files as arguments and then produces a <em>.csv</em> file with concentration values.</p>
+<h5 id="example">Example</h5>
+<p><em>Input:</em> </p>
+<ol>
+<li>File in CSV format with raw signals;</li>
+<li>File in CSV fromat with standard values.</li>
+</ol>
+<p><em>Output: elisa_result.csv file with the following structure:</em></p>
+<table>
+<thead>
+<tr>
+<th> </th>
+<th>
+<p>OD1</p>
+</th>
+<th>
+<p><strong>OD2</strong></p>
+</th>
+<th>
+<p><strong>AverageOD</strong></p>
+</th>
+<th>
+<p><strong>CorrectedOD</strong></p>
+</th>
+<th>
+<p><strong>Concentration (ng/ml)</strong></p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p style="text-align: center;">Sample 1</p>
+</td>
+<td>
+<p style="text-align: center;">1.253</p>
+</td>
+<td>
+<p style="text-align: center;">1.269</p>
+</td>
+<td>
+<p style="text-align: center;">1.261</p>
+</td>
+<td>
+<p style="text-align: center;">1.087</p>
+</td>
+<td>
+<p style="text-align: center;">0.225</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: center;">Sample 2</p>
+</td>
+<td>
+<p style="text-align: center;">2.619</p>
+</td>
+<td>
+<p style="text-align: center;">2.590</p>
+</td>
+<td>
+<p style="text-align: center;"> 2.605</p>
+</td>
+<td>
+<p style="text-align: center;">1.876</p>
+</td>
+<td>
+<p style="text-align: center;">0.378</p>
+</td>
+</tr>
+<tr>
+<td>
+<p style="text-align: center;">Blank</p>
+</td>
+<td>
+<p style="text-align: center;">0.172</p>
+</td>
+<td>
+<p style="text-align: center;">0.175</p>
+</td>
+<td>
+<p style="text-align: center;"> 0.174</p>
+</td>
+<td>
+<p style="text-align: center;"> 0</p>
+</td>
+<td>
+<p style="text-align: center;">0.002</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

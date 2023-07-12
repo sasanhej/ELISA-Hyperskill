@@ -1,0 +1,8 @@
+type: framework
+content:
+- Processing data
+- Figuring out equation parameters
+- Getting concentrations
+- Building your function
+- Final check
+current_task: 4
